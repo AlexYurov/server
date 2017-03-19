@@ -51,20 +51,13 @@ namespace UlteriusServer
         /// </summary>
         private void Setup()
         {
-            
-
-
              Console.WriteLine("Creating settings");
            
             var settings = Config.Load();
 
-        
-           
             Console.WriteLine("Configuring up server");
             Tools.ConfigureServer();
-          
-          
-        
+
             Console.WriteLine(Assembly.GetExecutingAssembly().GetName().Version);
             var useTerminal = settings.Terminal.AllowTerminal;
             var useWebServer = settings.WebServer.ToggleWebServer;

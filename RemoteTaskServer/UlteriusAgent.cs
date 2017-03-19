@@ -12,8 +12,6 @@ namespace UlteriusServer
 {
     public class UlteriusAgent
     {
-
-
         private Ulterius _ulterius;
 
         public void Start()
@@ -26,12 +24,10 @@ namespace UlteriusServer
             Console.ReadLine();
         }
 
-       
         public void HandleMonitor()
         {
             Tools.RestartAgent();
         }
-
 
         public void Stop()
         {

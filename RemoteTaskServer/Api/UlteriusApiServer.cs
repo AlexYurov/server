@@ -89,9 +89,6 @@ namespace UlteriusServer.Api
             }
         }
 
-        
-
-
         /// <summary>
         ///     Handles encrypted binary messages
         /// </summary>
@@ -130,7 +127,6 @@ namespace UlteriusServer.Api
                 packet?.HandlePacket();
             }
         }
-
 
         /// <summary>
         ///     Remove a client when it disconnects

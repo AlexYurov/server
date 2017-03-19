@@ -37,7 +37,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -67,7 +67,7 @@
     <ApplicationIcon>256.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>UlteriusServer.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -210,6 +210,9 @@
     <None Include="App.config" />
     <None Include="app.manifest" />
     <None Include="App1.config" />
+    <None Include="FodyWeavers.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -233,16 +236,9 @@
     <Content Include="256.ico" />
     <EmbeddedResource Include="Packets.json" />
     <None Include="Resources\ApplicationIcon.ico" />
-    <None Include="FodyWeavers.xml">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="twitter-profile.ico" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
     <Folder Include="Utilities\Files\Models\" />
   </ItemGroup>
   <ItemGroup>

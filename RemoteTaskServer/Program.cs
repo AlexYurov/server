@@ -30,38 +30,39 @@ namespace UlteriusServer
         }
 
         private static void Main(string[] args)
-
         {
             //Fix screensize issues for Screen Share
             if (Environment.OSVersion.Version.Major >= 6)
                 SetProcessDPIAware();
-            HideWindow();
+
+#if !DEBUG
+            HideWindow(); 
+#endif
             try
             {
                 if (
-                    Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location))
-                        .Count() > 1) return;
+                    Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).Length > 1) return;
 
                 ProfileOptimization.SetProfileRoot(AppEnvironment.DataPath);
                 ProfileOptimization.StartProfile("Startup.Profile");
 
                 if (args.Length > 0)
                 {
-                    HostFactory.Run(x => //1
+                    HostFactory.Run(x =>
                     {
-                        x.Service<UlteriusAgent>(s => //2
-                        {
-                            s.ConstructUsing(name => new UlteriusAgent()); //3
-                            s.WhenStarted(tc => tc.Start()); //4
-                            s.WhenStopped(tc => tc.Stop());
-                            s.WhenSessionChanged((se, e, id) => { se.HandleEvent(e, id); }); //5
-                        });
-                        x.RunAsLocalSystem(); //6
+                        x.RunAsLocalSystem();
                         x.EnableSessionChanged();
                         x.EnableServiceRecovery(r => { r.RestartService(1); });
-                        x.SetDescription("The server that powers Ulterius"); //7
-                        x.SetDisplayName("Ulterius Server"); //8
-                        x.SetServiceName("UlteriusServer"); //9
+                        x.SetDescription("The server that powers Ulterius");
+                        x.SetDisplayName("Ulterius Server");
+                        x.SetServiceName("UlteriusServer");
+                        x.Service<UlteriusAgent>(s =>
+                        {
+                            s.ConstructUsing(name => new UlteriusAgent());
+                            s.WhenStarted(tc => tc.Start());
+                            s.WhenStopped(tc => tc.Stop());
+                            s.WhenSessionChanged((se, e, id) => { se.HandleEvent(e, id); });
+                        });
                     });
                 }
                 else
@@ -71,14 +72,16 @@ namespace UlteriusServer
                     var hardware = new HardwareSurvey();
                     hardware.Setup();
                     if (Tools.RunningPlatform() == Tools.Platform.Windows)
+                    {
                         UlteriusTray.ShowTray();
+                    }
                     else
                         Console.ReadKey(true);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Something unexpected occured");
+                Console.WriteLine("Something unexpected occurred.");
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
                 Console.Read();

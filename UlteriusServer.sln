@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentInterface", "AgentInte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsInput", "..\inputsimulator2\WindowsInput\WindowsInput.csproj", "{3549CD6F-80F8-450F-B99E-CF0A736B1F2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ulterius.Windows.Management", "Ulterius.Windows.Management\Ulterius.Windows.Management.csproj", "{4A50C5B3-A74B-4BDF-BFEA-8FE3325656C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{3549CD6F-80F8-450F-B99E-CF0A736B1F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3549CD6F-80F8-450F-B99E-CF0A736B1F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3549CD6F-80F8-450F-B99E-CF0A736B1F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A50C5B3-A74B-4BDF-BFEA-8FE3325656C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A50C5B3-A74B-4BDF-BFEA-8FE3325656C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A50C5B3-A74B-4BDF-BFEA-8FE3325656C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A50C5B3-A74B-4BDF-BFEA-8FE3325656C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

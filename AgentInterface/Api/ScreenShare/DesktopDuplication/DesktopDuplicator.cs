@@ -53,7 +53,8 @@ namespace AgentInterface.Api.ScreenShare.DesktopDuplication
             Adapter1 adapter;
             try
             {
-                adapter = GetBestAdapter(out int bestAdapaterIndex);
+                int bestAdapaterIndex;
+                adapter = GetBestAdapter(out bestAdapaterIndex);
                 if (adapter == null) throw new SharpDXException();
                 Console.WriteLine($"Using the {adapter.Description.Description} for screen share.");
             }
