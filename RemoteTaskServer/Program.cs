@@ -35,9 +35,7 @@ namespace UlteriusServer
             if (Environment.OSVersion.Version.Major >= 6)
                 SetProcessDPIAware();
 
-#if !DEBUG
             HideWindow(); 
-#endif
             try
             {
                 if (

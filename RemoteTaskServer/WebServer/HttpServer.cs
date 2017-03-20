@@ -23,7 +23,7 @@ namespace UlteriusServer.WebServer
 {
     internal class HttpServer
     {
-      
+
 
         private static readonly IDictionary<string, string> MimeTypeMappings =
             new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
@@ -130,10 +130,10 @@ namespace UlteriusServer.WebServer
         public HttpServer(string path)
         {
             //get an empty port
-   
+
             var l = new TcpListener(NetworkService.GetAddress(), 0);
             l.Start();
-            var port = ((IPEndPoint) l.LocalEndpoint).Port;
+            var port = ((IPEndPoint)l.LocalEndpoint).Port;
             l.Stop();
             Initialize(path, port);
         }
@@ -159,7 +159,7 @@ namespace UlteriusServer.WebServer
         /// </summary>
         public void Stop()
         {
-            _serverThread.Abort( );
+            _serverThread.Abort();
             _listener.Stop();
         }
 
@@ -233,7 +233,7 @@ namespace UlteriusServer.WebServer
                             message = "File Uploaded!"
                         };
                         var json = JsonConvert.SerializeObject(responseObject);
-    
+
                         writer.WriteLine(json);
                     }
                     else
@@ -304,18 +304,18 @@ namespace UlteriusServer.WebServer
                     context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
                     context.Response.AddHeader("Last-Modified", File.GetLastWriteTime(filename).ToString("r"));
                     context.Response.AddHeader("Access-Control-Allow-Origin", "*");
-                    var buffer = new byte[1024*16];
+                    var buffer = new byte[1024 * 16];
                     int nbytes;
                     while ((nbytes = input.Read(buffer, 0, buffer.Length)) > 0)
                         context.Response.OutputStream.Write(buffer, 0, nbytes);
                     input.Close();
                     context.Response.OutputStream.Flush();
 
-                    context.Response.StatusCode = (int) HttpStatusCode.OK;
+                    context.Response.StatusCode = (int)HttpStatusCode.OK;
                 }
                 catch (Exception)
                 {
-                    context.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
+                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 }
             }
             else
@@ -327,7 +327,7 @@ namespace UlteriusServer.WebServer
                 }
                 else
                 {
-                    context.Response.StatusCode = (int) HttpStatusCode.NotFound;
+                    context.Response.StatusCode = (int)HttpStatusCode.NotFound;
                 }
             }
 

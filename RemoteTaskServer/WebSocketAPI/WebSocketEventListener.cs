@@ -84,7 +84,7 @@ namespace UlteriusServer.WebSocketAPI
                     var websocket = await listener.AcceptWebSocketAsync(CancellationToken.None)
                         .ConfigureAwait(false);
                     if (websocket != null)
-                        Task.Run(() => HandleWebSocketAsync(websocket));
+                        await Task.Run(() => HandleWebSocketAsync(websocket));
                 }
                 catch (Exception ex)
                 {
@@ -103,6 +103,7 @@ namespace UlteriusServer.WebSocketAPI
 
         private async Task HandleWebSocketAsync(WebSocket websocket)
         {
+            Monitor.Enter(websocket);
             try
             {
                 OnConnect?.Invoke(websocket);
@@ -148,6 +149,7 @@ namespace UlteriusServer.WebSocketAPI
             }
             finally
             {
+                Monitor.Exit(websocket);
                 websocket.Dispose();
             }
         }
