@@ -192,6 +192,18 @@
 			"endPoint": "RequestProcessInformation",
 			"packetHandler": "ProcessPacketHandler"
 		},
+		"requestserviceinformation": {
+			"endPoint": "RequestServiceInformation",
+			"packetHandler": "ServicePacketHandler"
+		},
+		"startservice": {
+			"endPoint": "StartService",
+			"packetHandler": "ServicePacketHandler"
+		},
+		"stopservice": {
+			"endPoint": "StopService",
+			"packetHandler": "ServicePacketHandler"
+		},
 		"requestcpuinformation": {
 			"endPoint": "RequestCpuInformation",
 			"packetHandler": "CpuPacketHandler"

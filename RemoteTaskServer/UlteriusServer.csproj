@@ -87,7 +87,7 @@
     <Compile Include="Api\Network\Models\LoginInformation.cs" />
     <Compile Include="Api\Network\Models\ServiceInformation.cs" />
     <Compile Include="Api\Network\PacketHandlers\DisplayPacketHandler.cs" />
-    <Compile Include="Api\Network\ServicePacketHandler.cs" />
+    <Compile Include="Api\Network\PacketHandlers\ServicePacketHandler.cs" />
     <Compile Include="Api\Network\UlteriusAgentClient.cs" />
     <Compile Include="Api\Services\LocalSystem\Daemons\JobModel.cs" />
     <Compile Include="Api\Network\PacketHandlers\CronJobPacketHandler.cs" />

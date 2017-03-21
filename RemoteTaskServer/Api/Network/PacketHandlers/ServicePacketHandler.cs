@@ -7,7 +7,7 @@ using UlteriusServer.Api.Network.Models;
 using UlteriusServer.WebSocketAPI.Authentication;
 using vtortola.WebSockets;
 
-namespace UlteriusServer.Api.Network
+namespace UlteriusServer.Api.Network.PacketHandlers
 {
     public class ServicePacketHandler : PacketHandler
     {
